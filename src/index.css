@@ -1,0 +1,185 @@
+
+@import "tailwindcss";
+
+.theme-default {
+  @apply bg-gradient-to-br from-slate-100 to-gray-300 text-black;
+}
+
+.theme-hot {
+  @apply bg-gradient-to-br from-yellow-200 to-orange-400 text-red-800;
+}
+
+.theme-cold {
+  @apply bg-gradient-to-br from-blue-900 to-sky-400 text-white;
+}
+
+.theme-mild {
+  @apply bg-gradient-to-br from-green-200 to-emerald-400 text-black;
+}
+
+.night {
+  @apply bg-gray-900 text-white;
+}
+
+.rain::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: url('/rain.gif'); /* or raindrop CSS */
+  background-size: cover;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* === NIGHT SKY STARS === */
+.stars {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.stars::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  box-shadow: 
+    10vw 20vh white,
+    30vw 40vh white,
+    60vw 10vh white,
+    80vw 70vh white,
+    90vw 30vh white,
+    50vw 90vh white,
+    70vw 20vh white,
+    20vw 80vh white,
+    15vw 10vh white,
+    5vw 50vh white;
+  animation: twinkle 2s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* === LIGHTNING FLASH === */
+.lightning::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+  animation: flash 5s infinite;
+}
+
+@keyframes flash {
+  0%, 90%, 100% { opacity: 0; }
+  92% { opacity: 0.4; }
+  93% { opacity: 0; }
+  95% { opacity: 0.6; }
+  96% { opacity: 0; }
+}
+/* === GLOW (for hot theme) === */
+.glow {
+  box-shadow: 0 0 60px 10px rgba(255, 200, 0, 0.5);
+  animation: glow-fade 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow-fade {
+  0% { box-shadow: 0 0 40px 5px rgba(255, 200, 0, 0.4); }
+  100% { box-shadow: 0 0 70px 15px rgba(255, 200, 0, 0.6); }
+}
+.glass {
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s ease;
+}
+
+/* Theme glow add-ons */
+.theme-hot .glass {
+  box-shadow: 0 0 40px 5px rgba(255, 165, 0, 0.3);
+}
+
+.theme-cold .glass {
+  box-shadow: 0 0 50px 5px rgba(0, 200, 255, 0.3);
+}
+
+.night .glass {
+  box-shadow: 0 0 30px 5px rgba(200, 200, 255, 0.1);
+}
+.stars {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+.stars::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  box-shadow:
+    20vw 10vh white, 60vw 20vh white, 80vw 70vh white,
+    90vw 30vh white, 50vw 90vh white, 10vw 30vh white;
+  animation: twinkle 2s infinite ease-in-out;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.lightning::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: white;
+  opacity: 0;
+  z-index: 1;
+  animation: flash 5s infinite;
+}
+@keyframes flash {
+  0%, 98%, 100% { opacity: 0; }
+  99% { opacity: 0.6; }
+}
+.typing-dots::after {
+  content: '';
+  display: inline-block;
+  width: 1ch;
+  animation: dots 1.2s steps(3, end) infinite;
+  vertical-align: bottom;
+}
+
+@keyframes dots {
+  0% { content: ''; }
+  33% { content: '.'; }
+  66% { content: '..'; }
+  100% { content: '...'; }
+}
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+}
+*
+{
+  font-family: 'Inter', sans-serif;
+}
