@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { FaUser, FaCog, FaSignOutAlt, FaPlus, FaRocket, FaHistory, FaSearch, FaBrain, FaEye, FaCloud, FaWind, FaBars, FaTimes, FaSnowflake, FaSun, FaCloudRain } from "react-icons/fa";
 // import './index.css';
 // Enhanced mock LLM function with location-specific weather
-const mockLLM = async (prompt) => {
+const mockLLM = async (prompt:string) => {
   await new Promise(resolve => setTimeout(resolve, 1500));
   
   const lowerPrompt = prompt.toLowerCase();
@@ -117,7 +117,7 @@ const mockLLM = async (prompt) => {
   }
 };
 
-function Raindrop({ delay, duration, left, width }) {
+function Raindrop({ delay, duration, left, width }:{ delay: number, duration: number, left: number, width: number }) {
   return (
     <div
       className="absolute bg-blue-300/60 blur-[0.5px] rounded-full pointer-events-none"
@@ -149,7 +149,7 @@ function Raindrop({ delay, duration, left, width }) {
 //     </div>
 //   );
 // }
-function Snowflake({ delay, duration, left }) {
+function Snowflake({ delay, duration, left }:{ delay: number, duration: number, left: number }) {
   return (
     <div
       className="absolute text-white text-opacity-50 text-sm select-none pointer-events-none"
@@ -345,7 +345,7 @@ function WeatherCard({ data }) {
 }
 
 // Chart Component
-function ChartCard({ data }) {
+function ChartCard({ data }:{ data: { labels: string[], values: number[] } }) {
   const maxValue = Math.max(...data.values);
   
   return (
@@ -462,7 +462,7 @@ function ChartCard({ data }) {
 //   );
 // }
 
-function MetricsCard({ data }) {
+function MetricsCard({ data }:{ data: { totalUsers: number, activeUsers: number, revenue: number, conversion: number } }) {
   const metrics = [
     { label: "Total Users", value: data.totalUsers.toLocaleString(), icon: FaUser, color: '#10b981' },
     { label: "Active Users", value: data.activeUsers.toLocaleString(), icon: FaEye, color: '#3b82f6' },
@@ -515,7 +515,7 @@ function MetricsCard({ data }) {
 
 
 // Info Card Component
-function InfoCard({ data }) {
+function InfoCard({ data }:{ data: { response: string, timestamp: string, confidence: number } }) {
   return (
     <div className="bg-gradient-to-br from-slate-900/30 to-zinc-900/30 border border-slate-500/20 rounded-2xl p-4 sm:p-6 backdrop-blur-md hover:border-slate-400/40 transition-all duration-500 group">
       <div className="flex items-center gap-3 mb-4">
@@ -540,7 +540,7 @@ function InfoCard({ data }) {
 }
 
 // Dynamic Component Renderer
-function DynamicRenderer({ type, title, data }) {
+function DynamicRenderer({ type, title, data }: { type: string, title?: string, data: any }) {
   switch (type) {
     case 'weather':
       return <WeatherCard data={data} />;
