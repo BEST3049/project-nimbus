@@ -182,14 +182,11 @@
 //   );
 // }
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 export default function HeroPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
-  const navigate = (path) => {
-    // Replace with your actual navigation logic
-    console.log(`Navigate to ${path}`);
-  };
+const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
