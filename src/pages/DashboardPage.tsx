@@ -1578,8 +1578,13 @@ function DynamicRenderer({ type, title, data }) {
 
 // Prompt Input Component
 function PromptInput() {
-  const [prompt, setPrompt] = useState("");
-  const [components, setComponents] = useState([]);
+  const [prompt, setPrompt] = useState<string>("");
+  type ComponentType = {
+  type: string;
+  title?: string;
+  data: any;
+};
+  const [components, setComponents] = useState<ComponentType>([]);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async () => {
@@ -1591,7 +1596,7 @@ function PromptInput() {
     setLoading(false);
   };
 
-  const handleKeyPress = (e) => {
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       handleSubmit();
     }
