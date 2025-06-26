@@ -167,7 +167,7 @@ function Snowflake({ delay, duration, left }:{ delay: number, duration: number, 
 
 
 // Enhanced Weather Card Component
-function WeatherCard({ data }) {
+function WeatherCard({ data }:any) {
   const [mounted, setMounted] = useState(false);
   
   useEffect(() => {
@@ -540,7 +540,7 @@ function InfoCard({ data }:{ data: { response: string, timestamp: string, confid
 }
 
 // Dynamic Component Renderer
-function DynamicRenderer({ type, title, data }: { type: string, title?: string, data: any }) {
+function DynamicRenderer({ type, data }: { type: string, data: any }) {
   switch (type) {
     case 'weather':
       return <WeatherCard data={data} />;
@@ -556,16 +556,14 @@ function DynamicRenderer({ type, title, data }: { type: string, title?: string, 
 // Prompt Input Component
 function PromptInput() {
   const [prompt, setPrompt] = useState<string>("");
-  type ComponentType = {
-  type: string;
-  title?: string;
-  data: any;
-};
-  const [components, setComponents] = useState<ComponentData>([]);
+
+  const [components, setComponents] = useState<ComponentData[]>([]);
   const [loading, setLoading] = useState(false);
     type ComponentData={
         type:string,
-        data:any
+        data:any,
+        length?:number,
+        map?:any,
     };
   const handleSubmit = async () => {
     if (!prompt.trim()) return;
@@ -677,7 +675,7 @@ function PromptInput() {
 }
 
 // Sidebar Component
-function Sidebar({ activeTab, setActiveTab, isOpen, setIsOpen }) {
+function Sidebar({ activeTab, setActiveTab, isOpen, setIsOpen }:{ activeTab: string, setActiveTab: (tab: string) => void, isOpen: boolean, setIsOpen: (open: boolean) => void }) {
   return (
     <>
       {/* Mobile Overlay */}
