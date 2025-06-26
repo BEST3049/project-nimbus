@@ -1054,7 +1054,7 @@ const mockLLM = async (prompt) => {
         humidity: 85,
         windSpeed: 22,
         weatherType: "rainy",
-        rainfall: 15
+        // rainfall: 15
       };
     } else if (lowerPrompt.includes('shimla')) {
       weatherData = {
@@ -1140,20 +1140,6 @@ const mockLLM = async (prompt) => {
   }
 };
 
-// Raindrop Component for Mumbai
-// function Raindrop({ delay, duration, left }) {
-//   return (
-//     <div
-//       className="absolute w-0.5 bg-gradient-to-b from-blue-200/60 to-blue-400/80 rounded-full animate-rain pointer-events-none"
-//       style={{
-//         left: `${left}%`,
-//         height: `${Math.random() * 15 + 10}px`,
-//         animationDelay: `${delay}s`,
-//         animationDuration: `${duration}s`
-//       }}
-//     />
-//   );
-// }
 function Raindrop({ delay, duration, left, width }) {
   return (
     <div

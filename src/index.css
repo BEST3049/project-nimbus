@@ -183,16 +183,7 @@
 {
   font-family: 'Inter', sans-serif;
 }
-@keyframes rain-drop {
-  0% {
-    transform: translateY(0);
-    opacity: 0.9;
-  }
-  100% {
-    transform: translateY(100vh);
-    opacity: 0;
-  }
-}
+
 @keyframes snow-fall {
   0% {
     transform: translateY(0) rotate(0deg);
