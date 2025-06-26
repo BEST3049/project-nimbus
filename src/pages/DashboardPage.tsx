@@ -376,91 +376,7 @@ function ChartCard({ data }:{ data: { labels: string[], values: number[] } }) {
   );
 }
 
-// Metrics Component
-// function MetricsCard({ data }) {
-//   const metrics = [
-//     { label: "Total Users", value: data.totalUsers.toLocaleString(), icon: FaUser, color: '#10b981' },
-//     { label: "Active Users", value: data.activeUsers.toLocaleString(), icon: FaEye, color: '#3b82f6' },
-//     { label: "Revenue", value: `$${data.revenue.toLocaleString()}`, icon: FaRocket, color: '#eab308' },
-//     { label: "Conversion", value: `${data.conversion}%`, icon: FaBrain, color: '#8b5cf6' }
-//   ];
-  
-//   return (
-//     <div className="bg-gradient-to-br from-emerald-900/30 to-teal-900/30 border border-emerald-500/20 rounded-2xl p-4 sm:p-6 backdrop-blur-md hover:border-emerald-400/40 transition-all duration-500 group col-span-1 sm:col-span-2">
-//       <div className="flex items-center gap-3 mb-4 sm:mb-6">
-//         <div className="w-3 h-3 bg-emerald-400 rounded-full animate-pulse"></div>
-//         <h3 className="text-white font-semibold text-sm sm:text-base">Analytics Overview</h3>
-//       </div>
-      
-//       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
-//         {metrics.map((metric, i) => {
-//           const Icon = metric.icon;
-//           return (
-//             <div key={metric.label} className="text-center group/metric hover:scale-105 transition-transform duration-300">
-//               <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 sm:mb-3 rounded-xl bg-opacity-20 border border-opacity-30 flex items-center justify-center transition-colors"
-//                    style={{ 
-//                      backgroundColor: `${metric.color}20`, 
-//                      borderColor: `${metric.color}50` 
-//                    }}>
-//                 <Icon style={{ color: metric.color }} className="text-base sm:text-lg" />
-//               </div>
-//               <div className="text-lg sm:text-2xl font-bold text-white mb-1">{metric.value}</div>
-//               <div className="text-xs" style={{ color: metric.color }}>{metric.label}</div>
-//             </div>
-//           );
-//         })}
-//       </div>
-//     </div>
-//   );
-// }
 
-
-// function MetricsCard({ data }) {
-//   const metrics = [
-//     { label: "Total Users", value: data.totalUsers.toLocaleString(), icon: FaUser, color: '#10b981' },
-//     { label: "Active Users", value: data.activeUsers.toLocaleString(), icon: FaEye, color: '#3b82f6' },
-//     { label: "Revenue", value: `$${data.revenue.toLocaleString()}`, icon: FaRocket, color: '#eab308' },
-//     { label: "Conversion", value: `${data.conversion}%`, icon: FaBrain, color: '#8b5cf6' }
-//   ];
-
-//   return (
-//     <div className="relative bg-gradient-to-br from-emerald-900/40 to-teal-900/40 border border-emerald-500/20 rounded-2xl p-6 sm:p-8 backdrop-blur-md hover:border-emerald-400/40 transition-all duration-500 group shadow-lg shadow-emerald-900/10 overflow-hidden">
-//       {/* Glow pulse */}
-//       <div className="absolute -top-8 -right-8 w-40 h-40 bg-emerald-400/10 rounded-full blur-2xl opacity-30 group-hover:opacity-40 transition duration-500" />
-
-//       <div className="flex items-center gap-3 mb-6">
-//         <div className="w-3 h-3 bg-emerald-400 rounded-full animate-ping" />
-//         <h3 className="text-white font-semibold text-lg tracking-wide">Analytics Overview</h3>
-//       </div>
-
-//       <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-//         {metrics.map((metric) => {
-//           const Icon = metric.icon;
-//           return (
-//             <div
-//               key={metric.label}
-//               className="bg-white/5 hover:bg-white/10 rounded-xl p-4 text-center transition-all duration-300 shadow-md hover:shadow-lg shadow-black/10 backdrop-blur-sm"
-//             >
-//               <div
-//                 className="w-12 h-12 mx-auto mb-3 rounded-xl flex items-center justify-center bg-opacity-20 border border-opacity-20"
-//                 style={{
-//                   backgroundColor: `${metric.color}20`,
-//                   borderColor: `${metric.color}40`,
-//                 }}
-//               >
-//                 <Icon style={{ color: metric.color }} className="text-xl" />
-//               </div>
-//               <div className="text-xl font-semibold text-white">{metric.value}</div>
-//               <div className="text-xs uppercase tracking-wide font-medium" style={{ color: metric.color }}>
-//                 {metric.label}
-//               </div>
-//             </div>
-//           );
-//         })}
-//       </div>
-//     </div>
-//   );
-// }
 
 function MetricsCard({ data }:{ data: { totalUsers: number, activeUsers: number, revenue: number, conversion: number } }) {
   const metrics = [
@@ -585,7 +501,7 @@ function PromptInput() {
     "Show me weather in Shimla",
     "Weather forecast for Ahmedabad",
     "Delhi weather today",
-    "Show me analytics metrics",
+    "How are the weather conditions in Kurnool?",
     "Create a sales chart for this month"
   ];
 
